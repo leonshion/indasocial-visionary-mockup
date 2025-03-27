@@ -31,7 +31,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ className }) => {
       toast({
         title: "Successfully connected!",
         description: "Your Internet Computer wallet is now connected",
-        variant: "success",
+        variant: "default", // Changed from "success" to "default"
       });
     }, 1500);
   };
