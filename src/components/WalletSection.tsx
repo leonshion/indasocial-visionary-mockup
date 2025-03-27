@@ -3,6 +3,7 @@ import React from 'react';
 import { ArrowUpRight, Wallet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ScrollReveal from './ScrollReveal';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const WalletSection: React.FC = () => {
   return (
@@ -67,9 +68,10 @@ const WalletSection: React.FC = () => {
                 
                 <div className="space-y-4">
                   <div className="p-4 bg-inda-light rounded-lg border border-gray-100 flex items-center">
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 shadow-sm">
-                      <img src="https://internetcomputer.org/img/IC-logo.svg" alt="Internet Computer" className="w-6 h-6" />
-                    </div>
+                    <Avatar className="w-10 h-10 mr-4 bg-white">
+                      <AvatarImage src="https://internetcomputer.org/img/IC-logo.svg" alt="Internet Computer" />
+                      <AvatarFallback className="bg-white text-inda-blue">IC</AvatarFallback>
+                    </Avatar>
                     <div>
                       <h4 className="font-medium text-inda-black">Internet Identity</h4>
                       <p className="text-sm text-gray-500">Secure, anonymous blockchain authentication</p>
@@ -77,9 +79,10 @@ const WalletSection: React.FC = () => {
                   </div>
                   
                   <div className="p-4 bg-inda-light rounded-lg border border-gray-100 flex items-center">
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 shadow-sm">
-                      <img src="https://nfid.one/icons/icon-144x144.png" alt="NFID" className="w-6 h-6" />
-                    </div>
+                    <Avatar className="w-10 h-10 mr-4 bg-white">
+                      <AvatarImage src="https://nfid.one/icons/icon-144x144.png" alt="NFID" />
+                      <AvatarFallback className="bg-white text-inda-purple">NF</AvatarFallback>
+                    </Avatar>
                     <div>
                       <h4 className="font-medium text-inda-black">NFID</h4>
                       <p className="text-sm text-gray-500">Cross-chain identity for Web3 applications</p>
@@ -87,9 +90,10 @@ const WalletSection: React.FC = () => {
                   </div>
                   
                   <div className="p-4 bg-inda-light rounded-lg border border-gray-100 flex items-center">
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 shadow-sm">
-                      <img src="https://plugwallet.ooo/assets/images/plug-logo.svg" alt="Plug Wallet" className="w-6 h-6" />
-                    </div>
+                    <Avatar className="w-10 h-10 mr-4 bg-white">
+                      <AvatarImage src="https://plugwallet.ooo/assets/images/plug-logo.svg" alt="Plug Wallet" />
+                      <AvatarFallback className="bg-white text-blue-500">PW</AvatarFallback>
+                    </Avatar>
                     <div>
                       <h4 className="font-medium text-inda-black">Plug Wallet</h4>
                       <p className="text-sm text-gray-500">Browser extension for ICP assets</p>
