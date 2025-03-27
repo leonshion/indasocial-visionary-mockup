@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import FeatureSection from '@/components/FeatureSection';
 import Footer from '@/components/Footer';
-import { ArrowRight, ChevronRight, Lock, Zap, BarChart3, Award } from 'lucide-react';
+import { ArrowRight, ChevronRight, Lock, Zap, BarChart3, Award, Users, Globe } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import Button from '@/components/Button';
 import FeatureCard from '@/components/FeatureCard';
