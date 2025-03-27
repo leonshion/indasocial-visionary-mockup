@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
               variant={isScrolled ? 'primary' : 'outline'} 
               className={!isScrolled ? 'border-white text-white hover:bg-white/10' : ''}
             >
-              Launch App
+              Connect Wallet
             </Button>
           </div>
           
@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
           ))}
           <div className="pt-5">
             <Button variant="primary" className="w-full justify-center">
-              Launch App
+              Connect Wallet
             </Button>
           </div>
         </div>

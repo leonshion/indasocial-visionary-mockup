@@ -28,29 +28,29 @@ const Hero: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fadeIn" duration="fast">
             <span className="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-wider text-white uppercase bg-inda-blue/20 backdrop-blur-sm rounded-full">
-              The Future of Social on Internet Computer
+              Built on Internet Computer Protocol
             </span>
           </ScrollReveal>
           
           <ScrollReveal animation="slideUp" delay={200}>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6">
-              Decentralized Social <span className="text-inda-blue">Economy</span>
+              The Web3 <span className="text-inda-blue">Social Network</span>
             </h1>
           </ScrollReveal>
           
           <ScrollReveal animation="slideUp" delay={400}>
             <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-              INDA is the token that rewards the content creators and its users, making possible a new decentralized social economy.
+              Experience true ownership of your social identity and content. Connect with others in a decentralized environment powered by the Internet Computer.
             </p>
           </ScrollReveal>
           
           <ScrollReveal animation="fadeIn" delay={600}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="primary" hasArrow>
-                Explore the Platform
+                Join The Platform
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                Learn About Token
+                About INDA Token
               </Button>
             </div>
           </ScrollReveal>

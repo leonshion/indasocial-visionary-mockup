@@ -54,21 +54,21 @@ const Index = () => {
               
               <ScrollReveal animation="slideUp" delay={200}>
                 <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 tracking-tight">
-                  The Economy of the <span className="text-inda-blue">Decentralized Social</span>
+                  Powering the <span className="text-inda-blue">Web3 Social Platform</span>
                 </h2>
               </ScrollReveal>
               
               <ScrollReveal animation="fadeIn" delay={300}>
                 <p className="text-lg text-white/80 mb-8">
-                  INDA is the token that rewards the content creators and its users, making possible a new decentralized social economy on the Internet Computer Protocol.
+                  INDA token is the native currency of the Indasocial platform, enabling new forms of monetization and ownership for creators, while providing a new decentralized social experience to users.
                 </p>
               </ScrollReveal>
               
               <div className="space-y-6 mb-8">
                 {[
-                  { title: "Reward Mechanism", description: "Content creators earn tokens based on engagement and quality" },
-                  { title: "Governance", description: "Token holders participate in protocol decisions and voting" },
-                  { title: "Utility", description: "Access premium features and services across the platform" }
+                  { title: "Decentralized Identity", description: "Create your Web3 ID and truly own your social data" },
+                  { title: "Value Capture", description: "Value is distributed back to users who create and engage with content" },
+                  { title: "Governance Rights", description: "Token holders determine the future development of the platform" }
                 ].map((item, index) => (
                   <ScrollReveal key={item.title} animation="slideUp" delay={400 + index * 100}>
                     <div className="flex items-start">
@@ -103,14 +103,14 @@ const Index = () => {
                     <div className="absolute -top-4 -right-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 shadow-glass">
                       <div className="flex items-center">
                         <Zap className="w-6 h-6 text-inda-blue mr-2" />
-                        <span className="text-white font-medium">Fast Transactions</span>
+                        <span className="text-white font-medium">Fast & Scalable</span>
                       </div>
                     </div>
                     
                     <div className="absolute -bottom-4 -left-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 shadow-glass">
                       <div className="flex items-center">
                         <Lock className="w-6 h-6 text-inda-blue mr-2" />
-                        <span className="text-white font-medium">Secure & Trustless</span>
+                        <span className="text-white font-medium">Built on ICP</span>
                       </div>
                     </div>
                   </div>
@@ -127,19 +127,19 @@ const Index = () => {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <ScrollReveal>
               <span className="inline-block px-3 py-1 text-xs font-medium text-inda-blue bg-inda-blue/10 rounded-full mb-4">
-                Development Plan
+                Our Progress
               </span>
             </ScrollReveal>
             
             <ScrollReveal animation="slideUp" delay={200}>
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 tracking-tight">
-                Our <span className="text-inda-blue">Roadmap</span> to Decentralized Social
+                Our <span className="text-inda-blue">Roadmap</span> to Revolutionize Social Media
               </h2>
             </ScrollReveal>
             
             <ScrollReveal animation="fadeIn" delay={400}>
               <p className="text-lg text-gray-600">
-                Follow our journey as we build and deploy Indasocial on the Internet Computer Protocol ecosystem.
+                We're building Indasocial step by step, with a focus on user experience, scalability, and decentralization on the Internet Computer Protocol.
               </p>
             </ScrollReveal>
           </div>
@@ -151,28 +151,28 @@ const Index = () => {
             {/* Roadmap items */}
             {[
               {
-                title: "Q1 2023: Research & Planning",
-                description: "Market research, competitive analysis, and project planning. Initial architecture design.",
+                title: "Q1 2023: Platform Foundation",
+                description: "Initial platform architecture design and ICP integration research.",
                 status: "Completed"
               },
               {
-                title: "Q2 2023: MVP Development",
-                description: "Development of core platform features and token smart contract.",
+                title: "Q2 2023: Alpha Development",
+                description: "Core functionality development and initial user interface design.",
                 status: "Completed"
               },
               {
-                title: "Q3 2023: Private Beta",
-                description: "Limited release to early users and testers. Gathering feedback and making improvements.",
+                title: "Q3 2023: Beta Testing",
+                description: "Closed beta testing with invited creators and early adopters.",
                 status: "In Progress"
               },
               {
                 title: "Q4 2023: Token Launch",
-                description: "INDA token official launch with initial distribution events.",
+                description: "INDA token launch with initial distribution to early community members.",
                 status: "Upcoming"
               },
               {
-                title: "Q1 2024: Public Platform Launch",
-                description: "Full platform release with complete feature set for all users.",
+                title: "Q1 2024: Platform Launch",
+                description: "Public launch of the Indasocial platform with full feature set.",
                 status: "Upcoming"
               },
             ].map((item, index) => (
@@ -207,19 +207,19 @@ const Index = () => {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <ScrollReveal>
               <span className="inline-block px-3 py-1 text-xs font-medium text-inda-blue bg-inda-blue/10 rounded-full mb-4">
-                Join Us
+                Join Our Community
               </span>
             </ScrollReveal>
             
             <ScrollReveal animation="slideUp" delay={200}>
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 tracking-tight">
-                Be Part of Our <span className="text-inda-blue">Community</span>
+                Be Part of the <span className="text-inda-blue">Revolution</span>
               </h2>
             </ScrollReveal>
             
             <ScrollReveal animation="fadeIn" delay={400}>
               <p className="text-lg text-gray-600 mb-8">
-                Join thousands of early adopters shaping the future of decentralized social on Internet Computer Protocol.
+                Join thousands of creators, developers, and blockchain enthusiasts building the future of social media on the Internet Computer Protocol.
               </p>
             </ScrollReveal>
             
@@ -239,22 +239,22 @@ const Index = () => {
             {[
               {
                 icon: Users,
-                title: "10K+",
+                title: "15K+",
                 description: "Community Members"
               },
               {
                 icon: Award,
-                title: "5+",
-                description: "Ecosystem Partners"
+                title: "8+",
+                description: "Industry Partners"
               },
               {
                 icon: BarChart3,
-                title: "$2M+",
-                description: "Early Funding"
+                title: "$3M+",
+                description: "Development Funding"
               },
               {
                 icon: Globe,
-                title: "15+",
+                title: "20+",
                 description: "Countries Represented"
               }
             ].map((item, index) => (

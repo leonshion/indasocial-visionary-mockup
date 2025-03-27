@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-2">
             <Logo variant="white" className="mb-6" />
             <p className="text-gray-400 mb-6 max-w-md">
-              Indasocial is building the future of decentralized social interactions on Internet Computer Protocol, creating a new economy where creators and users are properly rewarded.
+              Indasocial is a decentralized social media platform built on the Internet Computer Protocol, creating a user-owned ecosystem where content creators and users truly benefit from their participation.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -29,9 +29,9 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Platform</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Token</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Roadmap</a></li>
+              <li><a href="#features" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
+              <li><a href="#token" className="text-gray-400 hover:text-white transition-colors">INDA Token</a></li>
+              <li><a href="#roadmap" className="text-gray-400 hover:text-white transition-colors">Roadmap</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Whitepaper</a></li>
             </ul>
           </div>
@@ -40,8 +40,8 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">Resources</h3>
             <ul className="space-y-3">
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">API</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Community</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Developers</a></li>
+              <li><a href="#community" className="text-gray-400 hover:text-white transition-colors">Community</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
