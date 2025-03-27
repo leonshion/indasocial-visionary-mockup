@@ -1,91 +1,104 @@
 
 import React from 'react';
-import { Cpu, Wallet, Shield, ArrowRight, Link2 } from 'lucide-react';
+import { ArrowUpRight, Wallet } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import ScrollReveal from './ScrollReveal';
-import Button from './Button';
-import ConnectWallet from './ConnectWallet';
 
 const WalletSection: React.FC = () => {
   return (
-    <section id="wallet" className="py-20 md:py-32 bg-gradient-to-br from-white to-inda-light/50 relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-inda-light relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-20 -left-20 w-64 h-64 bg-inda-purple/10 rounded-full filter blur-3xl"></div>
-      <div className="absolute bottom-20 -right-20 w-80 h-80 bg-inda-blue/10 rounded-full filter blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-inda-blue/20 to-inda-purple/20 rounded-tl-[100px] blur-2xl"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <ScrollReveal>
-            <span className="inline-block px-3 py-1 text-xs font-medium text-inda-blue bg-inda-blue/10 rounded-full mb-4">
-              Internet Computer
-            </span>
-          </ScrollReveal>
-          
-          <ScrollReveal animation="slideUp" delay={200}>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 tracking-tight">
-              Connect to the <span className="text-inda-blue">Internet Computer</span>
-            </h2>
-          </ScrollReveal>
-          
-          <ScrollReveal animation="fadeIn" delay={400}>
-            <p className="text-lg text-gray-600 mb-8">
-              Experience the power of true decentralization with DFINITY's Internet Computer. Connect your wallet to interact with the platform and access exclusive features.
-            </p>
-          </ScrollReveal>
-          
-          <ScrollReveal animation="fadeIn" delay={600}>
-            <div className="flex justify-center mb-10">
-              <ConnectWallet />
-            </div>
-          </ScrollReveal>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {[
-            {
-              icon: Wallet,
-              title: "Secure Authentication",
-              description: "Connect with Internet Identity, Plug or Stoic wallet for secure and seamless authentication"
-            },
-            {
-              icon: Cpu,
-              title: "Web3 Integration",
-              description: "Directly interact with Internet Computer canisters and smart contracts"
-            },
-            {
-              icon: Shield,
-              title: "Self-Custody",
-              description: "Maintain complete control of your digital assets with non-custodial wallet solutions"
-            }
-          ].map((item, index) => (
-            <ScrollReveal key={index} delay={300 + index * 150}>
-              <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
-                <div className="w-12 h-12 mb-4 bg-inda-blue/10 rounded-full flex items-center justify-center">
-                  <item.icon className="w-6 h-6 text-inda-blue" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-gray-600 mb-4">{item.description}</p>
-                <a href="https://dfinity.org/" target="_blank" rel="noreferrer" className="inline-flex items-center text-inda-blue hover:text-inda-purple transition-colors text-sm font-medium">
-                  Learn more
-                  <ArrowRight className="ml-1 w-4 h-4" />
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <ScrollReveal>
+              <span className="inline-block px-3 py-1 text-xs font-medium text-inda-blue bg-inda-blue/10 rounded-full mb-4">
+                Connect to ICP
+              </span>
+            </ScrollReveal>
+            
+            <ScrollReveal animation="slideUp" delay={200}>
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 tracking-tight">
+                Seamlessly Connect Your <span className="text-inda-blue">Internet Computer Wallet</span>
+              </h2>
+            </ScrollReveal>
+            
+            <ScrollReveal animation="fadeIn" delay={300}>
+              <p className="text-lg text-gray-600 mb-6">
+                Integration with Internet Computer Protocol allows for seamless wallet connection, enabling you to interact with the platform, manage your INDA tokens, and participate in the ecosystem.
+              </p>
+            </ScrollReveal>
+            
+            <ScrollReveal animation="fadeIn" delay={400}>
+              <p className="text-lg text-gray-600 mb-8">
+                Your data remains secure and under your control with our decentralized authentication system, powered by Internet Identity and NFID.
+              </p>
+            </ScrollReveal>
+            
+            <ScrollReveal animation="fadeIn" delay={500}>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button variant="default" size="lg" className="bg-inda-blue hover:bg-inda-blue/90">
+                  <Wallet className="mr-2 h-5 w-5" /> Connect Wallet
+                </Button>
+                <a 
+                  href="https://www.notion.so/mileoon/INDASOCIAL-WHITEPAPER-1a9855c74f39802aa398d9b1b8f0668e?pvs=4" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-2.5 text-sm font-medium text-inda-black border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+                >
+                  Read Whitepaper <ArrowUpRight className="w-5 h-5" />
                 </a>
               </div>
             </ScrollReveal>
-          ))}
-        </div>
-        
-        <div className="mt-16 text-center">
-          <ScrollReveal animation="fadeIn" delay={800}>
-            <div className="inline-flex items-center justify-center gap-3 px-4 py-2 bg-gray-50 rounded-full mb-4">
-              <Link2 className="w-4 h-4 text-inda-blue" />
-              <span className="text-sm font-medium">Powered by the Internet Computer Protocol</span>
-            </div>
-          </ScrollReveal>
+          </div>
           
-          <ScrollReveal animation="slideUp" delay={900}>
-            <p className="text-gray-500 max-w-2xl mx-auto">
-              The Internet Computer is a blockchain network that provides a revolutionary platform for smart contracts and decentralized applications, with breakthrough scalability, speed, and efficiency.
-            </p>
-          </ScrollReveal>
+          <div className="relative">
+            <ScrollReveal animation="slideUp" delay={200}>
+              <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-gray-100">
+                <div className="mb-6">
+                  <div className="w-12 h-12 bg-inda-blue/10 rounded-full flex items-center justify-center mb-4">
+                    <Wallet className="w-6 h-6 text-inda-blue" />
+                  </div>
+                  <h3 className="text-xl font-bold text-inda-black mb-2">Connect Your Wallet</h3>
+                  <p className="text-gray-600">Securely connect your Internet Computer wallet to access the full functionality of the platform.</p>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="p-4 bg-inda-light rounded-lg border border-gray-100 flex items-center">
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 shadow-sm">
+                      <img src="https://internetcomputer.org/img/IC-logo.svg" alt="Internet Computer" className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-inda-black">Internet Identity</h4>
+                      <p className="text-sm text-gray-500">Secure, anonymous blockchain authentication</p>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-inda-light rounded-lg border border-gray-100 flex items-center">
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 shadow-sm">
+                      <img src="https://nfid.one/icons/icon-144x144.png" alt="NFID" className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-inda-black">NFID</h4>
+                      <p className="text-sm text-gray-500">Cross-chain identity for Web3 applications</p>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-inda-light rounded-lg border border-gray-100 flex items-center">
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-4 shadow-sm">
+                      <img src="https://plugwallet.ooo/assets/images/plug-logo.svg" alt="Plug Wallet" className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-inda-black">Plug Wallet</h4>
+                      <p className="text-sm text-gray-500">Browser extension for ICP assets</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </div>
     </section>
