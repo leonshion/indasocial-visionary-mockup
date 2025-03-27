@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
-import Button from './Button';
+import ConnectWallet from './ConnectWallet';
 import { cn } from '@/lib/utils';
 
 const Navbar: React.FC = () => {
@@ -63,12 +63,7 @@ const Navbar: React.FC = () => {
           </div>
           
           <div className="hidden md:flex">
-            <Button 
-              variant={isScrolled ? 'primary' : 'outline'} 
-              className={!isScrolled ? 'border-white text-white hover:bg-white/10' : ''}
-            >
-              Connect Wallet
-            </Button>
+            <ConnectWallet />
           </div>
           
           <div className="md:hidden">
@@ -106,9 +101,7 @@ const Navbar: React.FC = () => {
             </a>
           ))}
           <div className="pt-5">
-            <Button variant="primary" className="w-full justify-center">
-              Connect Wallet
-            </Button>
+            <ConnectWallet className="w-full" />
           </div>
         </div>
       </div>

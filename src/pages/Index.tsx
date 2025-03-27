@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import FeatureSection from '@/components/FeatureSection';
+import WalletSection from '@/components/WalletSection';
 import Footer from '@/components/Footer';
 import { ArrowRight, ChevronRight, Lock, Zap, BarChart3, Award, Users, Globe } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
@@ -120,6 +121,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* Add the new Wallet Section here */}
+      <WalletSection />
       
       {/* Roadmap Section */}
       <section id="roadmap" className="py-20 md:py-32 bg-white relative overflow-hidden">
