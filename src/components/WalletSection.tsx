@@ -4,6 +4,7 @@ import { ArrowUpRight, Wallet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ScrollReveal from './ScrollReveal';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import ConnectWallet from './ConnectWallet';
 
 const WalletSection: React.FC = () => {
   return (
@@ -40,9 +41,7 @@ const WalletSection: React.FC = () => {
             
             <ScrollReveal animation="fadeIn" delay={500}>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="default" size="lg" className="bg-inda-blue hover:bg-inda-blue/90">
-                  <Wallet className="mr-2 h-5 w-5" /> Connect Wallet
-                </Button>
+                <ConnectWallet />
                 <a 
                   href="https://www.notion.so/mileoon/INDASOCIAL-WHITEPAPER-1a9855c74f39802aa398d9b1b8f0668e?pvs=4" 
                   target="_blank" 

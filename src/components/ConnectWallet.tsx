@@ -1,48 +1,126 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Wallet, ChevronDown, CheckCircle, XCircle, Copy, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from '@/hooks/use-toast';
+import { AuthClient } from '@dfinity/auth-client';
+import { Principal } from '@dfinity/principal';
 
 interface ConnectWalletProps {
   className?: string;
 }
 
+// Days to milliseconds (for token expiration)
+const days = (n: number) => n * 24 * 60 * 60 * 1000;
+
 const ConnectWallet: React.FC<ConnectWalletProps> = ({ className }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [principalId, setPrincipalId] = useState('');
+  const [authClient, setAuthClient] = useState<AuthClient | null>(null);
+  const [isInitializing, setIsInitializing] = useState(true);
 
-  const mockPrincipalId = 'xqz3k-g7pre-rqtoj-sn2df-y43dz-v5ejt-hswgj-6agc4-xkgtu-sj7mj-sae';
+  // Initialize the auth client
+  useEffect(() => {
+    const initAuth = async () => {
+      try {
+        const client = await AuthClient.create();
+        setAuthClient(client);
+        
+        // Check if the user is already authenticated
+        const isAuthenticated = await client.isAuthenticated();
+        
+        if (isAuthenticated) {
+          const identity = client.getIdentity();
+          const principal = identity.getPrincipal();
+          
+          setIsConnected(true);
+          setPrincipalId(principal.toString());
+        }
+        
+        setIsInitializing(false);
+      } catch (error) {
+        console.error('Error initializing auth client:', error);
+        toast({
+          title: "Authentication Error",
+          description: "Could not initialize ICP authentication. Please try again later.",
+        });
+        setIsInitializing(false);
+      }
+    };
 
-  const handleConnectWallet = (walletType: string) => {
-    // In a real implementation, this would integrate with the actual Dfinity/ICP wallet
-    // For now, we'll simulate a connection after a short delay
+    initAuth();
+  }, []);
+
+  const handleInternetIdentityLogin = async () => {
+    if (!authClient) return;
+    
     toast({
-      title: `Connecting to ${walletType}...`,
-      description: "Please approve the connection request in your wallet",
+      title: "Connecting to Internet Identity...",
+      description: "Please complete the authentication in the popup window",
     });
     
-    setTimeout(() => {
-      setIsConnected(true);
-      setPrincipalId(mockPrincipalId);
-      setIsOpen(false);
-      toast({
-        title: "Successfully connected!",
-        description: "Your Internet Computer wallet is now connected",
-        variant: "default", // Changed from "success" to "default"
+    try {
+      // The window will redirect to the Internet Identity service
+      await authClient.login({
+        identityProvider: 'https://identity.ic0.app',
+        onSuccess: () => {
+          const identity = authClient.getIdentity();
+          const principal = identity.getPrincipal();
+          
+          setIsConnected(true);
+          setPrincipalId(principal.toString());
+          setIsOpen(false);
+          
+          toast({
+            title: "Successfully connected!",
+            description: "Your Internet Computer wallet is now connected",
+            variant: "default",
+          });
+        },
+        maxTimeToLive: days(7), // Session will expire after 7 days
       });
-    }, 1500);
+    } catch (error) {
+      console.error('Login error:', error);
+      toast({
+        title: "Connection Failed",
+        description: "There was an error connecting to Internet Identity",
+      });
+    }
   };
 
-  const handleDisconnect = () => {
-    setIsConnected(false);
-    setPrincipalId('');
+  const handlePlugWalletConnect = () => {
     toast({
-      title: "Wallet disconnected",
-      description: "Your wallet has been disconnected from this app",
+      title: "Connecting to Plug Wallet...",
+      description: "Plug integration is not fully implemented yet",
     });
+    
+    // In a real implementation, you would use the Plug API
+    // This is a placeholder for future implementation
+    // Plug has its own JavaScript API that is different from AuthClient
+  };
+
+  const handleStoicWalletConnect = () => {
+    toast({
+      title: "Connecting to Stoic Wallet...",
+      description: "Stoic integration is not fully implemented yet",
+    });
+    
+    // In a real implementation, you would use the Stoic wallet API
+    // This is a placeholder for future implementation
+  };
+
+  const handleDisconnect = async () => {
+    if (authClient) {
+      await authClient.logout();
+      setIsConnected(false);
+      setPrincipalId('');
+      toast({
+        title: "Wallet disconnected",
+        description: "Your wallet has been disconnected from this app",
+      });
+    }
   };
 
   const copyToClipboard = () => {
@@ -52,6 +130,19 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ className }) => {
       description: "Principal ID has been copied to your clipboard",
     });
   };
+
+  if (isInitializing) {
+    return (
+      <Button 
+        variant="outline" 
+        className={cn("opacity-70", className)}
+        disabled
+      >
+        <Wallet className="mr-2 h-4 w-4" />
+        Initializing...
+      </Button>
+    );
+  }
 
   return (
     <div className={cn("relative", className)}>
@@ -78,7 +169,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ className }) => {
               
               <div className="p-2">
                 <button
-                  onClick={() => handleConnectWallet("Internet Identity")}
+                  onClick={handleInternetIdentityLogin}
                   className="w-full px-4 py-3 flex items-center rounded-md hover:bg-gray-50 transition-colors"
                 >
                   <div className="w-8 h-8 rounded-full bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center text-white mr-3">
@@ -91,7 +182,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ className }) => {
                 </button>
                 
                 <button
-                  onClick={() => handleConnectWallet("Plug Wallet")}
+                  onClick={handlePlugWalletConnect}
                   className="w-full px-4 py-3 flex items-center rounded-md hover:bg-gray-50 transition-colors mt-2"
                 >
                   <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white mr-3">
@@ -104,7 +195,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ className }) => {
                 </button>
                 
                 <button
-                  onClick={() => handleConnectWallet("Stoic Wallet")}
+                  onClick={handleStoicWalletConnect}
                   className="w-full px-4 py-3 flex items-center rounded-md hover:bg-gray-50 transition-colors mt-2"
                 >
                   <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center text-white mr-3">
@@ -161,7 +252,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ className }) => {
                 
                 <div className="mt-4">
                   <a 
-                    href="https://dashboard.internetcomputer.org/" 
+                    href={`https://dashboard.internetcomputer.org/account/${principalId}`} 
                     target="_blank"
                     rel="noreferrer"
                     className="text-inda-blue hover:text-inda-blue/80 text-sm flex items-center mb-2"
