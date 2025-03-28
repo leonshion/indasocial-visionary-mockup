@@ -79,7 +79,8 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ className }) => {
             variant: "default",
           });
         },
-        maxTimeToLive: days(7), // Session will expire after 7 days
+        // Convert the days() result from number to BigInt
+        maxTimeToLive: BigInt(days(7)), // Session will expire after 7 days
       });
     } catch (error) {
       console.error('Login error:', error);
