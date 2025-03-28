@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -11,7 +10,6 @@ import Button from '@/components/Button';
 import FeatureCard from '@/components/FeatureCard';
 
 const Index = () => {
-  // Implement custom scrollbar behavior
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -38,9 +36,7 @@ const Index = () => {
       <Hero />
       <FeatureSection />
       
-      {/* Token Section */}
       <section id="token" className="py-20 md:py-32 bg-gradient-to-br from-inda-black to-inda-dark text-white relative overflow-hidden">
-        {/* Decorative elements */}
         <div className="absolute top-1/3 -right-24 w-64 h-64 bg-inda-blue opacity-30 rounded-full filter blur-3xl"></div>
         <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-inda-purple opacity-20 rounded-full filter blur-3xl"></div>
         
@@ -100,7 +96,6 @@ const Index = () => {
                       <span className="text-5xl md:text-7xl font-bold text-white">INDA</span>
                     </div>
                     
-                    {/* Animated circles */}
                     <div className="absolute -top-4 -right-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 shadow-glass">
                       <div className="flex items-center">
                         <Zap className="w-6 h-6 text-inda-blue mr-2" />
@@ -122,10 +117,8 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Add the new Wallet Section here */}
       <WalletSection />
       
-      {/* Roadmap Section */}
       <section id="roadmap" className="py-20 md:py-32 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -149,36 +142,29 @@ const Index = () => {
           </div>
           
           <div className="relative">
-            {/* Vertical line */}
             <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform md:-translate-x-0.5"></div>
             
-            {/* Roadmap items */}
             {[
               {
-                title: "Q1 2023: Platform Foundation",
-                description: "Initial platform architecture design and ICP integration research.",
+                title: "Q1 2023 - March",
+                description: "Smart contract launch on ICP and IndaToken public on ICP.",
                 status: "Completed"
               },
               {
-                title: "Q2 2023: Alpha Development",
-                description: "Core functionality development and initial user interface design.",
+                title: "Q2 2023 - April",
+                description: "Listing on ICP and liquidity opening. Token opening to the market.",
                 status: "Completed"
               },
               {
-                title: "Q3 2023: Beta Testing",
-                description: "Closed beta testing with invited creators and early adopters.",
+                title: "Q2 2023 - May",
+                description: "Adoption and staking expansion. Holder growth.",
                 status: "In Progress"
               },
               {
-                title: "Q4 2023: Token Launch",
-                description: "INDA token launch with initial distribution to early community members.",
+                title: "Q2 2023 - June",
+                description: "Marketing communities on web3, events, and more sponsorships.",
                 status: "Upcoming"
-              },
-              {
-                title: "Q1 2024: Platform Launch",
-                description: "Public launch of the Indasocial platform with full feature set.",
-                status: "Upcoming"
-              },
+              }
             ].map((item, index) => (
               <ScrollReveal 
                 key={item.title} 
@@ -205,7 +191,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Community Section */}
       <section id="community" className="py-20 md:py-32 bg-inda-light relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
