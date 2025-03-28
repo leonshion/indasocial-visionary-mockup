@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -214,12 +215,16 @@ const Index = () => {
             
             <ScrollReveal animation="fadeIn" delay={600}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                <Button size="lg" variant="primary" hasArrow>
-                  Join Discord
-                </Button>
-                <Button size="lg" variant="outline">
-                  Follow on Twitter
-                </Button>
+                <a href="https://discord.gg/D4gJNemzPj" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" variant="primary" hasArrow>
+                    Join Discord
+                  </Button>
+                </a>
+                <a href="https://twitter.com/indasocial_mx" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" variant="outline">
+                    Follow on Twitter
+                  </Button>
+                </a>
               </div>
             </ScrollReveal>
           </div>
