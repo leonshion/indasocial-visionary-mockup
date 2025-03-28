@@ -14,13 +14,13 @@ const Footer: React.FC = () => {
               Indasocial is a decentralized social media platform built on the Internet Computer Protocol, creating a user-owned ecosystem where content creators and users truly benefit from their participation.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://github.com/leonshion" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Github size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://twitter.com/indasocial_mx" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <Twitter size={20} />
+              </a>
+              <a href="https://discord.gg/D4gJNemzPj" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Globe size={20} />
               </a>
             </div>
