@@ -64,7 +64,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ className }) => {
     try {
       // The window will redirect to the Internet Identity service
       await authClient.login({
-        identityProvider: 'https://identity.ic0.app',
+        identityProvider: 'https://identity.internetcomputer.org/',
         onSuccess: () => {
           const identity = authClient.getIdentity();
           const principal = identity.getPrincipal();
