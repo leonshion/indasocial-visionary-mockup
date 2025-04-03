@@ -41,7 +41,7 @@ const FeatureSection: React.FC = () => {
 
   return (
     <section id="features" className="py-20 md:py-32 bg-white relative overflow-hidden">
-      {/* Decorative elements */}
+      {/* Elementos decorativos */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-inda-blue/5 rounded-bl-full"></div>
       <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-inda-purple/5 rounded-tr-full"></div>
       

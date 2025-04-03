@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
       
-      {/* Mobile menu */}
+      {/* Menú móvil */}
       <div 
         className={cn(
           'fixed inset-0 top-16 z-40 bg-white transform transition-transform duration-300 ease-in-out md:hidden',

@@ -13,17 +13,17 @@ const Hero: React.FC = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-      {/* Background with gradient overlay */}
+      {/* Background con overlay de gradiente */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-inda-black to-inda-dark opacity-90"></div>
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519389950473-47ba0277781c')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
       </div>
       
-      {/* Animated circles */}
+      {/* Círculos animados */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-inda-blue opacity-10 rounded-full filter blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-inda-purple opacity-10 rounded-full filter blur-3xl animate-pulse animation-delay-2000"></div>
       
-      {/* Content */}
+      {/* Contenido */}
       <div className="container mx-auto px-4 pt-32 pb-24 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal animation="fadeIn" duration="fast">
@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
       
-      {/* Scroll indicator */}
+      {/* Indicador de scroll */}
       <div className={`absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="flex flex-col items-center">
           <span className="text-sm text-white/70 mb-2">Scroll to explore</span>
