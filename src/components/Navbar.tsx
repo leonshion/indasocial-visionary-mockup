@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
-import Button from './Button';
+import ConnectWallet from './ConnectWallet';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -70,13 +70,7 @@ const Navbar: React.FC = () => {
           </div>
           
           <div className="hidden md:flex items-center">
-            <Button 
-              variant={isScrolled ? 'primary' : 'outline'} 
-              size="sm"
-              className={!isScrolled ? 'text-white' : undefined}
-            >
-              Launch App
-            </Button>
+            <ConnectWallet />
           </div>
           
           {/* Mobile menu button */}
@@ -127,9 +121,7 @@ const Navbar: React.FC = () => {
             GitHub
           </a>
           <div className="pt-4 px-3">
-            <Button variant="primary" className="w-full">
-              Launch App
-            </Button>
+            <ConnectWallet />
           </div>
         </div>
       </div>

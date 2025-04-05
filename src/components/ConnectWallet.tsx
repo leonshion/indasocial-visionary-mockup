@@ -1,36 +1,45 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Wallet, CheckCheck } from 'lucide-react';
+import { Wallet, CheckCheck, ExternalLink } from 'lucide-react';
+import { toast } from "@/components/ui/use-toast";
+import usePlug from '@/hooks/usePlug';
 
 const ConnectWallet: React.FC = () => {
-  const [isConnected, setIsConnected] = useState(false);
-  const [isConnecting, setIsConnecting] = useState(false);
+  const { isConnected, isConnecting, principal, plugAvailable, connect, disconnect } = usePlug();
 
-  const handleConnect = async () => {
+  const handleClick = async () => {
     if (isConnected) {
-      // Disconnect logic here
-      setIsConnected(false);
+      await disconnect();
       return;
     }
     
-    setIsConnecting(true);
-    
-    // Simulate connection process
-    try {
-      // Replace with actual wallet connection logic
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setIsConnected(true);
-    } catch (error) {
-      console.error("Failed to connect wallet:", error);
-    } finally {
-      setIsConnecting(false);
+    if (!plugAvailable) {
+      toast({
+        title: "Plug wallet required",
+        description: (
+          <div className="flex flex-col gap-2">
+            <p>Please install the Plug wallet extension for Chrome to continue.</p>
+            <a 
+              href="https://chrome.google.com/webstore/detail/plug/cfbfdhimifdmdehjmkdobpcjfefblkjm" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-blue-500 hover:underline"
+            >
+              Install Plug Wallet <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
+        ),
+      });
+      return;
     }
+
+    await connect();
   };
 
   return (
     <Button
-      onClick={handleConnect}
+      onClick={handleClick}
       disabled={isConnecting}
       className={`inline-flex items-center justify-center gap-2 px-8 py-2.5 text-sm font-medium rounded-md transition-colors ${
         isConnected 
@@ -46,7 +55,7 @@ const ConnectWallet: React.FC = () => {
       ) : isConnected ? (
         <>
           <CheckCheck className="w-5 h-5" />
-          Wallet Connected
+          {principal ? `${principal.substring(0, 5)}...${principal.substring(principal.length - 5)}` : 'Wallet Connected'}
         </>
       ) : (
         <>
